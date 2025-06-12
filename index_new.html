@@ -15,7 +15,7 @@
 
     <div class="container">
         <p>
-            RipVIS is a large-scale video instance segmentation benchmark for detecting rip currents from real-world beach footage. It includes tasks such as classification, bounding box detection, oriented bounding boxes, semantic segmentation, and instance segmentation.
+            RipVIS is a large-scale video instance segmentation benchmark for detecting rip currents from real-world beach footage. It is focused on instance segmentation for precise identification of rip currents.
         </p>
 
         <div class="highlight-box">
@@ -57,6 +57,14 @@
                 <p>Detection after TCA thresholding</p>
             </div>
         </div>
+
+        <h2>Temporal Confidence Aggregation (TCA)</h2>
+        <p>
+            TCA is a custom temporal post-processing method designed to reduce false positives and improve temporal consistency of rip current predictions. 
+            Below is a visual breakdown of its multi-stage filtering process:
+        </p>
+        <img src="/assets/images/TCA_diagram_v1.4.png" alt="TCA Temporal Confidence Aggregation Steps" class="full-width-image">
+
 
         <h2>Diverse Conditions and Annotation Types</h2>
         <p>RipVIS includes scenes from drones, smartphones, and fixed cams in various lighting, wave, and sand conditions. Here's a visual overview:</p>
