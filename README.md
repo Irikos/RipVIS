@@ -2,6 +2,7 @@
 This Readme describes the RipVIS dataset, its contents, structure, known limitations, how to use it and what to expect in future updates. For more details, future challenges and other information, keep an eye on [RipVIS website](https://ripvis.ai) or write to andrei.dumitriu@uni-wuerzburg.de .
 
 ## Table of Contents
+1. [Short Description](#short-description)
 1. [Links of Interest](#links-of-interest)
 1. [Structure](#structure)
 1. [Splits](#splits)
@@ -24,12 +25,15 @@ The dataset consists of 184 videos, out of which 150 videos contain rip currents
 - Prof. Dr. Radu Ionescu
 - Prof. Dr. Radu Timofte
 
+**[⬆ back to top](#table-of-contents)**
+
 ## Links of interest
 - Main contact: andrei.dumitriu@uni-wuerzburg.de
 - Website: https://RipVIS.ai
 - HuggingFace Link: https://huggingface.co/datasets/Irikos/RipVIS/
 - Codabench Evaluation server: coming soon, see ripvis website for updates
 
+**[⬆ back to top](#table-of-contents)**
 
 ## Structure
 
