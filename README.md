@@ -9,9 +9,9 @@ This Readme describes the RipVIS dataset, its contents, structure, known limitat
 1. [Citations](#citations)
 1. [Contributing](#contributing)
 1. [Licensing](#licensing)
+1. [Workshops and Challenges](#workshops-and-challenges)
 1. [Known Limitations](#known-limitations)
 1. [Future Updates](#future-updates)
-1. [Challenges](#challenges)
 1. [Current Version](#current-version)
 
 ## Short description
@@ -89,27 +89,27 @@ Thus, our recommendation, for obtaining accurate results is to use this split st
 1. ```RipVIS-<video_number>``` for videos with rip currents
 1. ```RipVIS-NR-<video_number>```for video without rip currents (NR = No Rips)
 1. ```RipVIS-<video_number>_<frame_number>``` or ```RipVIS-NR-<video_number>_<frame_number>```for frames in video (results should be reported on frames)
-1. video_number zero-paddedis to 3 digits. E.g. 4th video is `RipVIS-004.mp4` not `RipVIS-4.mp4`
-1. frame_number is 5-zeroes padded. E.g. 28th frames from 4th video is `RipVIS-004_00028.jpg` and NOT `RipVIS-004_28.jpg`. This difference is relevant for the evaluaiton script.
+1. video_number is zero-padded to 3 digits. E.g. 4th video is `RipVIS-004.mp4` not `RipVIS-4.mp4`
+1. frame_number is zero-padded to 5 digits. E.g. 28th frames from 4th video is `RipVIS-004_00028.jpg` and NOT `RipVIS-004_28.jpg`. This difference is relevant for the evaluation script.
 
 
 ### Train
 RipVIS-
-```'003', '004', '005', '006', '010', '011', '016', '017', '018', '020', '021', '022', '028', '029', '030', '031', '032', '033', '034', '035', '036', '037', '040', '041', '042', '045', '049', '050', '051', '052', '054', '056', '057', '058', '060', '061', '062', '063', '064', '065', '068', '069', '070', '071', '075', '076', '077', '080', '082', '083', '084', '085', '086', '087', '088', '089', '091', '092', '093', '094', '095', '096', '097', '098', '100', '101', '103', '104', '105', '106', '107', '110', '111', '112', '115', '116', '117', '118', '122', '123', '124', '126', '127', '135', '136', '140', '141', '148', '149', '150'```
+```['003', '004', '005', '006', '010', '011', '016', '017', '018', '020', '021', '022', '028', '029', '030', '031', '032', '033', '034', '035', '036', '037', '040', '041', '042', '045', '049', '050', '051', '052', '054', '056', '057', '058', '060', '061', '062', '063', '064', '065', '068', '069', '070', '071', '075', '076', '077', '080', '082', '083', '084', '085', '086', '087', '088', '089', '091', '092', '093', '094', '095', '096', '097', '098', '100', '101', '103', '104', '105', '106', '107', '110', '111', '112', '115', '116', '117', '118', '122', '123', '124', '126', '127', '135', '136', '140', '141', '148', '149', '150']```
 
 RipVIS-NR-
 ```['002', '003', '006', '007', '008', '009', '010', '011', '012', '015', '016', '017', '018', '025', '027', '028', '029', '030', '031', '032', '033', '034']```
 
 ### Validation
 RipVIS-
-```'001', '007', '012', '014', '015', '024', '026', '039', '044', '046', '053', '059', '066', '067', '072', '079', '090', '102', '108', '109', '121', '128', '129', '133', '134', '137', '143', '144', '146', '147'```
+```['001', '007', '012', '014', '015', '024', '026', '039', '044', '046', '053', '059', '066', '067', '072', '079', '090', '102', '108', '109', '121', '128', '129', '133', '134', '137', '143', '144', '146', '147']```
 
 RipVIS-NR-
 ```['004', '019', '020', '022', '024', '026']```
 
 ### Test
 RipVIS-
-```'002', '008', '009', '013', '019', '023', '025', '027', '038', '043', '047', '048', '055', '073', '074', '078', '081', '099', '113', '114', '119', '120', '125', '130', '131', '132', '138', '139', '142', '145'```
+```['002', '008', '009', '013', '019', '023', '025', '027', '038', '043', '047', '048', '055', '073', '074', '078', '081', '099', '113', '114', '119', '120', '125', '130', '131', '132', '138', '139', '142', '145']```
 
 RipVIS-NR-
 ```['001', '005', '013', '014', '021', '023']```
@@ -185,20 +185,19 @@ A subset of RipVIS that was collected and annotated entirely by the authors is a
 **[⬆ back to top](#table-of-contents)**
 
 
+## Workshops and Challenges
+1. We organized the [AIM 2025 Rip Current Segmentation (RipSeg) Challenge](https://www.codabench.org/competitions/9109/) challenge at AIM workshop in conjuction with [ICCV2025](https://iccv.thecvf.com/). See the [AIM 2025 Rip Current Segmentation (RipSeg) Challenge Report](https://arxiv.org/abs/2508.13401) on arXiv, which will be published in the ICCVW2025 Proceedings.
+1. Another challenge coming soon, stay tuned.
 
 ## Known Limitations
 1. Some of the videos have been annotated with Roboflow. By default, Roboflow sorts files by "Newest". This, however, is rather random when uploading files in bulk. We realised this at some point and sorted the files by filename, leading to annotations in the frame order. However, for the videos annotated with "Newest", the annotations can be quite jittery when overlaied in a video. This does not affect the quantitative results in any observable way and is strictly a visual issue. 
 1. Video sampling rate varies greatly, depending on video duration, movement and annotator disponibility at the specific time. Frames are usually numbered in such a way that they match the exact frame from the video (e.g. RipVIS-015_00005.jpg is the 6th frame from RipVIS-015 video). However, several annotations contain the frames in order, with frame number not matching the actual frame from the video. The actual frame can still be reasonably accurately found by calculating the sampling rate, the total number of frames and the total number of annotated frames. We will fix this in a future patch. 
 Known videos: RipVIS-
-```'001', '003', '004', '006', '007', '011', '012', '014', '016', '017', '018', '020', '021', '022', '024', '033', '034', '035', '036', '037', '039', '040'```.
-1. Somes sampled and annotated frames were removed due to invalid annotation format (an error most likely created in transitioning from video to frames to Roboflow and back). While we mitigated this, it is still the case that a a small number of annotated frames might be missing in the published version. 
+```['001', '003', '004', '006', '007', '011', '012', '014', '016', '017', '018', '020', '021', '022', '024', '033', '034', '035', '036', '037', '039', '040']```.
+1. Some sampled and annotated frames were removed due to invalid annotation format (an error most likely created in transitioning from video to frames to Roboflow and back). While we mitigated this, it is still the case that a a small number of annotated sampled frames might be missing in the published version. 
 
 **[⬆ back to top](#table-of-contents)**
 
-
-## Challenges
-1. We organized the [AIM 2025 Rip Current Segmentation (RipSeg) Challenge](https://www.codabench.org/competitions/9109/) challenge at AIM workshop in conjuction with [ICCV2025](https://iccv.thecvf.com/). See the [AIM 2025 Rip Current Segmentation (RipSeg) Challenge Report](https://arxiv.org/abs/2508.13401) on arXiv, which will be published in the ICCVW2025 Proceedings.
-1. Another challenge comin soon, stay tuned.
 
 ## Future Updates
 1. Codabench website for automatic evaluation on the test split (ETA mid October 2025). 
@@ -211,6 +210,7 @@ Known videos: RipVIS-
 ## Current Version
 Current version of RipVIS is 1.8.4.
 
-Last update: 25.09.2025 15:40
+Last DATASET update: 25.09.2025 15:40
+Last README update: 27.09.2025 13:00
 
 **[⬆ back to top](#table-of-contents)**
